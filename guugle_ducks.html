@@ -1,0 +1,75 @@
+<html>
+	
+		<head>
+            <title>Guugle Ducks</title>
+            <style>
+                body{
+                background-color:red;
+                color:white;
+                }
+                textarea{
+                    background-color:white;
+                    border-color:black;
+                    border-width:4px;
+                    margin-left:auto;
+                    margin-right:auto;
+                    height:80%;
+                    width:100%;
+                    margin-top:20px;
+                    resize:none;
+                    outline: none;
+                }
+                b{
+                    text-decoration:underline;
+                   /* background: linear-gradient(to right, #FFF 20%, #f00 40%, #F00 60%, #FFF 80%);
+                    -webkit-background-clip: text;
+                    text-decoration-fill-color:transparent;
+                    animation: shine 3s linear 1;
+                     background-size: 200% auto;
+                    animation-delay:2s;*/
+                }
+                h1{
+                   /* background: linear-gradient(to right, #FFF 20%, #f00 40%, #F00 60%, #FFF 80%);
+                   -webkit-background-clip: text;
+                    -webkit-text-fill-color:transparent;
+                    animation: shine 3s linear 1;
+                     background-size: 200% auto;*/
+                }
+  /*@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }    */         
+            </style>
+    </head>
+    <body>
+        <h1>Guugle Ducks</h1>
+        <h4>Here, you can type <b><i>Guud</i></b> things!</h4>
+        <button id="dwn-btn">Download</button>
+        <textarea id="writing"></textarea>
+<script>
+	function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+// Start file download.
+document.getElementById("dwn-btn").addEventListener("click", function(){
+    // Generate download of hello.txt file with some content
+	var text = document.getElementById("writing").value;
+    var filename = prompt("Please enter the title of your PDF:","");
+    download(filename + ".txt", text);
+}, false);
+	
+	</script>
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
